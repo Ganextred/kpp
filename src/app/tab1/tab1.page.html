@@ -1,17 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Лабораторна робота №1 </ion-title>
+  </ion-toolbar>
+  <ion-toolbar> <ion-title>Виконав Ротань Кирило</ion-title> </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Лабораторні роботи </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-header collapse="condense">
+      <ion-title size="large">Завдання 1</ion-title>
+    </ion-header>
+    <ion-card-content>
+      <p>
+        Задано три числа. Якщо хоч одне з них парне, то знайти куб суми. В
+        іншому випадку – суму кубів.
+      </p>
+      <ion-item>
+        <ion-label position="floating"> Перше число. </ion-label>
+        <ion-input type="number" id="a" value="1" #InputA> </ion-input>
+      </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+      <ion-item>
+        <ion-label position="floating"> Друге число. </ion-label>
+        <ion-input type="number" id="b" value="2" #InputB> </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> Трете число. </ion-label>
+        <ion-input type="number" id="c" value="3" #InputC></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        (click)="ras(InputA.value, InputB.value, InputC.value)"
+        >Calculate</ion-button
+      >
+
+      <ion-item>
+        <p>Результат {{d}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

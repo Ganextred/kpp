@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title> Лабораторна робота №1 </ion-title>
   </ion-toolbar>
+  <ion-toolbar> <ion-title>Виконав Ротань Кирило</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-header collapse="condense">
+      <ion-title size="large">Завдання 2</ion-title>
+    </ion-header>
+    <ion-card-content>
+      <p>Знайдіть суму парних чисел на заданому проміжку чисел [a,b]</p>
+      <ion-item>
+        <ion-label position="floating"> Перше число. </ion-label>
+        <ion-input type="number" id="a" value="1" #InputA> </ion-input>
+      </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-item>
+        <ion-label position="floating"> Друге число. </ion-label>
+        <ion-input type="number" inputmode="numeric" id="b" value="2" #InputB> </ion-input>
+      </ion-item>
+      <ion-button expand="block" inputmode="numeric" (click)="ras(InputA.value, InputB.value)"
+        >Calculate</ion-button
+      >
+
+      <ion-item>
+        <p>Результат {{d}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
