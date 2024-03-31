@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Лабораторна робота №3 </ion-title>
+  </ion-toolbar>
+  <ion-toolbar> <ion-title>Виконав Ротань Кирило</ion-title> </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Лабораторні роботи </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-text
+        >У JSON файлі який зберігається на сервері записано Перелік основних
+        дисциплін: • Назва дисципліни. • Кафедра, на якій читається дисципліна.
+        • ПІБ викладача, який читає лекції. • ПІБ викладача, що веде лабораторні
+        заняття.
+        <ol>
+          <li>
+            Створити Json файл на сервері
+            <a href="https://jsonbin.io/">https://jsonbin.io/</a>
+          </li>
+          <li>Зчитати інформацію</li>
+          <li>Вивести інформацію</li>
+          <li>
+            Позначити кольором дисципліни, які читаються викладачами заданої
+            кафедри. (назву кафедри ввести у формі)
+          </li>
+        </ol>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Кафедра</ion-label>
+        <ion-input type="text" [(ngModel)]="searchDepartment"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="load()">Зaвантажити</ion-button>
+
+      <ion-item>
+        <ion-list class="list">
+          <ion-item
+            button
+            *ngFor="let item of data; index as i"
+            detail
+            (click)="toggleDetails(i)"
+          >
+            <ion-label
+              *ngIf="!showDetails[i]"
+              [ngStyle]="{color: getHighlightedColor(item.department)}"
+              text-wrap
+            >
+              <ion-text>
+                <h2>Назва дисципліни: {{item.name}}</h2>
+              </ion-text>
+            </ion-label>
+            <ion-text *ngIf="showDetails[i]">
+              <h2 [ngStyle]="{color: getHighlightedColor(item.department)}">
+                Назва дисципліни: {{item.name}}
+              </h2>
+              <h2>Кафедра: {{item.department}}</h2>
+              <h2>ПІБ викладача, який читає лекції: {{item.lecturer_name}}</h2>
+              <h2>
+                ПІБ викладача, що веде лабораторні заняття:
+                {{item.lab_instructor_name}}
+              </h2>
+            </ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
