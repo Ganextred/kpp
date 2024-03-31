@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Лабораторна робота №4 </ion-title>
+  </ion-toolbar>
+  <ion-toolbar> <ion-title>Виконав Ротань Кирило</ion-title> </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Лабораторні роботи </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        Завдання 1. Скласти програму з абстрактним батьківським класом і двома
+        об'єктами – нащадками. Реалізувати циклічне виведення параметрів
+        об'ктів, використовуючи поліморфний контейнер - масив об'єктів базового
+        класу (кількість об'єктів: = 5)
+        <ul>
+          <li>Батьківський клас: Вектор (поле назва)</li>
+          <li>
+            Нащадки: Двомірний вектор (по-ля: компоненти вектору), Тримірний
+            вектор (поле розмірність)
+          </li>
+          <li>Методи: Довжина вектору</li>
+        </ul>
+      </ion-text>
+      <ion-text>
+        Завдання 2. Організувати обчислення сумарної довжини векторів.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating"> Довжина. </ion-label>
+        <ion-input type="number" id="a" value="1" #InputA> </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="ras(InputA.value)"
+        >Згенерувати</ion-button
+      >
+
+      <ion-item>
+        <ion-list class="list">
+          <ion-item *ngFor="let vector of vectors; index as i">
+            <ion-text>{{ vector.show() }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
