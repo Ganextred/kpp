@@ -1,0 +1,57 @@
+<app-my-header name="Лабороторна робота №7"></app-my-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        Завдання по роботі з сервісами:
+        <ol>
+          <li>
+            Розробити сервіс для табулювання функції відповідно до варіанту
+          </li>
+          <li>
+            Розробити сервіс для розрахунку значень функції за допомогою ряду
+            відповідно до варіанту
+          </li>
+          <li>
+            Розробити сервіс для розрахунку значень функції за допомогою
+            рекурсії відповідно до варіанту
+          </li>
+          <li>
+            Розробити сервіс для логування обчислених значень у консоль та
+            використати його у попередніх трьох сервісах
+          </li>
+          <li>
+            У основному застосунку підключити сервіси, вивести результати усіх
+            розрахунків та побудувати графіки для усіх обрахунків.
+          </li>
+        </ol>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="x1" value="-3.13" #Inputx1></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xk</ion-label>
+        <ion-input type="number" id="x2" value="3.14" #Inputx2></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">h</ion-label>
+        <ion-input type="number" id="h" value="0.25" #Inputh></ion-input>
+      </ion-item>
+      <ion-button
+        expand="block"
+        (click)="
+          graphras(Inputx1.value, Inputx2.value, Inputh.value)
+        "
+      >
+        Розрахунок
+      </ion-button>
+      <ion-item>
+        <canvas #lineCanvas></canvas>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
