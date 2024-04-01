@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'lab6',
     loadChildren: () => import('./lab6/lab6.module').then( m => m.Lab6PageModule)
-  },
+  }
 ];
 @NgModule({
   imports: [

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { Lab3PageRoutingModule } from './lab3-routing.module';
 
 import { Lab3Page } from './lab3.page';
+import { MyHeaderModule } from '../my-header/my-header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Lab3PageRoutingModule
+    Lab3PageRoutingModule,
+    MyHeaderModule
   ],
-  declarations: [Lab3Page]
+  declarations: [Lab3Page],
 })
 export class Lab3PageModule {}
