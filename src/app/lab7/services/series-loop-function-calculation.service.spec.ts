@@ -13,4 +13,8 @@ describe('SeriesLoopFunctionCalculationService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should calculate value in zero correctly', () => {
+    expect(service.calculateFunctionValue(2)).toBeCloseTo((Math.PI - 2) / 2, 1);
+  });
 });

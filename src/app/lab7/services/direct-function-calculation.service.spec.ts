@@ -13,4 +13,8 @@ describe('DirectFunctionCalculationService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should calculate value in zero correctly', () => {
+    expect(service.calculateFunctionValue(1)).toBeCloseTo((Math.PI - 1) / 2, 2);
+  });
 });
