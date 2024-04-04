@@ -25,7 +25,7 @@ describe('Quaternion', () => {
     const q1 = new Quaternion(0.98,  0.08,  0.17,  -0.05);
     const q2 = new Quaternion(0.7071,  0.7071,  0.0,   0.0);
     const result = q1.multiply(q2);
-    expect(result.w).toBeCloseTo(0.636, 3);+
+    expect(result.w).toBeCloseTo(0.636, 3);
     expect(result.x).toBeCloseTo(0.75, 3);
     expect(result.y).toBeCloseTo(0.085, 3);
     expect(result.z).toBeCloseTo(-0.156, 3);

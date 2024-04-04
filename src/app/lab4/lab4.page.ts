@@ -10,15 +10,20 @@ import { Vector3D } from './classes/vector3D';
 })
 export class Lab4Page {
   vectors: Vector[] = [];
+  s: number = 0;
 
   constructor() {}
 
   ras(n: any) {
-    this.vectors = []
+    this.vectors = [];
     n = parseInt(n);
+    this.s = 0;
     for (let i = 0; i < n; i++) {
-      this.vectors.push(new Vector2D());
-      this.vectors.push(new Vector3D());
+      let v2d = new Vector2D();
+      let v3d = new Vector3D();
+      this.vectors.push(v2d);
+      this.vectors.push(v3d);
+      this.s += v2d.len() + v3d.len();
     }
   }
 }
