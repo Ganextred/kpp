@@ -11,7 +11,7 @@
 
       <ion-item>
         <ion-label position="floating">ПІБ читача</ion-label>
-        <ion-input formControlName="name" type="text"></ion-input>
+        <ion-input formControlName="readerName" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -29,15 +29,20 @@
         <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
 
-      <ion-item
-        *ngFor="let book of getControls(); let i = index"
-      >
-        <ion-label position="floating"
-          >Список прочитаних книг #{{ i + 1 }}</ion-label
-        >
-        <ion-input formControlName="{{ i }}"></ion-input>
-        <ion-icon (click)="removeBook(i)" name="remove-circle"></ion-icon>
-      </ion-item>
+      <ion-card formArrayName="books">
+        <ion-card-header>
+          <ion-card-title>Книги</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item *ngFor="let book of getControls(); let i = index">
+            <ion-label position="floating"
+              >Прочитана книга #{{ i + 1 }}</ion-label
+            >
+            <ion-input [formControlName]="i"></ion-input>
+            <ion-icon (click)="removeBook(i)" name="remove-circle"></ion-icon>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
 
       <ion-button expand="block" (click)="addBook()">Додати книгу</ion-button>
       <ion-button expand="block" type="submit">Підтвердити</ion-button>

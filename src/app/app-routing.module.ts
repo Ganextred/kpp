@@ -38,7 +38,12 @@ const routes: Routes = [
   {
     path: 'lab8',
     loadChildren: () => import('./lab8/lab8.module').then( m => m.Lab8PageModule)
+  },
+  {
+    path: 'mkr1',
+    loadChildren: () => import('./mkr1/mkr1.module').then( m => m.Mkr1PageModule)
   }
+
 ];
 @NgModule({
   imports: [

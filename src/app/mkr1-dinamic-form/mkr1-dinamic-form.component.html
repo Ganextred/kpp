@@ -1,0 +1,59 @@
+<form [formGroup]="matrixForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Введіть розмірність матриці</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        formControlName="height"
+        placeholder="Высота"
+        (ngModelChange)="populateMatrix()"
+        >Высота</ion-input
+      >
+      <ion-input
+        formControlName="width"
+        placeholder="Ширина"
+        (ngModelChange)="populateMatrix()"
+        >Ширина</ion-input
+      >
+      <ion-input
+        formControlName="rowNum"
+        placeholder="Номер рядка"
+        (ngModelChange)="populateMatrix()"
+        #rowNumber
+        >Рядок який потрібно відняти з усіх інших</ion-input
+      >
+
+      <ion-grid formArrayName="matrix">
+        <ion-row
+          *ngFor="let row of getControls(); index as rowIndex"
+          [formArrayName]="rowIndex"
+        >
+          <ion-col *ngFor="let control of row; index as columnIndex">
+            <ion-input
+              [formControlName]="columnIndex"
+              placeholder="Ввеедіть значення"
+            ></ion-input
+          ></ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button type="submit" expand="full" color="success"
+        >Розрахувати</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let row of result_matrix; index as index">
+          <ion-col
+            *ngFor="let num of row"
+            [style.color]="index === rowNumber.value ? 'red' : ''"
+            >{{ num }}</ion-col
+          >
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</form>
